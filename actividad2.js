@@ -1,10 +1,11 @@
-const fs = require('fs')
+const fs = Require('fs')
 const produc = 'Productos.json'
-class Producmanager {
+
+class Productmanager {
     async consultarProductos(){
         try {
             if (fs.existsSync(produc)) {
-                const infoProductos = await fs.promises-readFile(produc, 'utf-8')
+                const infoProductos = await fs.promises.readFile(produc, 'utf-8')
                 const infoProductosJS = JSON.parse(infoProductos)
                 return infoProductosJS
             } else {
@@ -17,7 +18,7 @@ class Producmanager {
     async crearUsuario(usuario){
         try {
             const usuarios = await this.consultarProductos()
-            usuarios.push(uruasio)
+            usuarios.push(usuario)
             await fs.promises.writeFile(consultarProductos, JSON.stringify(usuarios))
         } catch (error){
             console.log(error)
